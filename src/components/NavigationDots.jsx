@@ -5,8 +5,11 @@ const NavigationDots = ({ active }) => {
     <div className="app__navigation">
       {["home", "about", "skills", "projects","experience","testimonial", "contact"].map((item,index) => {
         return (
-          <a href={`#${item}`} key={item+index} className="app__navigation-dot" style={active===item ? {backgroundColor: '#313BAC'} : {}}/>
-        );
+<a href={`#${item}`} key={item + index} className="app__navigation-dot" style={active === item ? { backgroundColor: '#313BAC' } : { }}>
+    <span className="visually-hidden" style={{ display: 'none' }}>{item} dot</span>
+</a>
+
+);
       })}
     </div>
   );
