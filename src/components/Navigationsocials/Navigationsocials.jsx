@@ -19,9 +19,10 @@ const Navigationsocials = () => {
     return (
         <>
             <div id="circularMenu" className={` circular-menu-social ${isSocialActive ? 'active' : ''}`}>
-                <a className="floating-btn" onClick={OnClickSocialBtn}>
-                    <i ><AiOutlineShareAlt /></i>
-                </a>
+            <button className="floating-btn" onClick={OnClickSocialBtn}>
+    <i><AiOutlineShareAlt /></i>
+</button>
+
                 <menu className="items-wrapper">
                     <a href="https://github.com/harshshukla2807" target="_blank" className="menu-item "><AiFillGithub /> </a>
                     <a href="https://www.linkedin.com/in/harsh-shukla-275119218/" target="_blank" className="menu-item "><AiOutlineLinkedin /> </a>
