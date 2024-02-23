@@ -8,8 +8,7 @@ import { IoIosMail } from "react-icons/io";
 import { IoLogoWhatsapp } from "react-icons/io";
 // import {BsTwitter} from 'react-icons/bs'
 import { FaSquareXTwitter } from "react-icons/fa6";
-
-
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -53,86 +52,97 @@ const Contact = () => {
       </div>
 
       <h2 className="head-text contact-heading">Get in Touch</h2>
-   <div className="app__footer-container">
-      <div className="app__footer-cards">
-        <div className="app__footer-card ">
-        <IoIosMail style={{ color: '#727227', opacity: 0.9 }} className="mail-icon" />
-          <a
-            href="mailto:harshshukla2807@gmail.com"
-            target="_blank"
-            rel="noreferrer"
-            className="p-text"
+      <div className="app__footer-container">
+        <motion.div
+          whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+          transition={{ duration: 2.4 }}
+          className="app__footer-cards"
+        >
+          <div className="app__footer-card ">
+            <IoIosMail
+              style={{ color: "#727227", opacity: 0.9 }}
+              className="mail-icon"
+            />
+            <a
+              href="mailto:harshshukla2807@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+              className="p-text"
+            >
+              harshshukla2807@gmail.com
+            </a>
+          </div>
+          <div className="app__footer-card">
+            <IoLogoWhatsapp className="whatsapp-icon" />
+            <a
+              href="https://api.whatsapp.com/send?phone=917982826918&text=Hello, more information!"
+              target="_blank"
+              rel="noreferrer"
+              className="p-text"
+            >
+              +91-7982826918
+            </a>
+          </div>
+          <div className="app__footer-card">
+            <FaSquareXTwitter color="black" className="twitter-icon" />
+            <a
+              href="https://twitter.com/Harsh_stwt"
+              target="_blank"
+              rel="noreferrer"
+              className="p-text"
+            >
+              @Harsh_stwt
+            </a>
+          </div>
+        </motion.div>
+        {!isFormSubmitted ? (
+          <motion.div
+            whileInView={{ x: [100, 0], opacity: [0, 1] }}
+            transition={{ duration: 1.6}}
+            className="app__footer-form app__flex"
           >
-            harshshukla2807@gmail.com
-          </a>
-        </div>
-        <div className="app__footer-card">
-          <IoLogoWhatsapp className="whatsapp-icon" />
-          <a
-            href="https://api.whatsapp.com/send?phone=917982826918&text=Hello, more information!"
-            target="_blank"
-            rel="noreferrer"
-            className="p-text"
-          >
-            +91-7982826918
-          </a>
-        </div>
-        <div className="app__footer-card">
-          <FaSquareXTwitter color="black" className="twitter-icon" />
-          <a
-            href="https://twitter.com/Harsh_stwt"
-            target="_blank"
-            rel="noreferrer"
-            className="p-text"
-          >
-            @Harsh_stwt
-          </a>
-        </div>
+            <div className="app__flex">
+              <input
+                className="p-text"
+                required
+                type="text"
+                placeholder="Your Name"
+                name="username"
+                value={username}
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div className="app__flex">
+              <input
+                className="p-text"
+                type="email"
+                required
+                placeholder="Your Email"
+                name="email"
+                value={email}
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div className="app__flex">
+              <textarea
+                className="p-text"
+                placeholder="Your Message"
+                required
+                value={message}
+                name="message"
+                onChange={handleChangeInput}
+              />
+            </div>
+            <button type="button" className="p-text" onClick={handleSubmit}>
+              {!loading ? "Send Message" : "Sending..."}
+            </button>
+          </motion.div>
+        ) : (
+          <div>
+            <h3 className="head-text">Thank you for getting in touch!</h3>
+          </div>
+        )}
       </div>
-      {!isFormSubmitted ? (
-        <div className="app__footer-form app__flex">
-          <div className="app__flex">
-            <input
-              className="p-text"
-              required
-              type="text"
-              placeholder="Your Name"
-              name="username"
-              value={username}
-              onChange={handleChangeInput}
-            />
-          </div>
-          <div className="app__flex">
-            <input
-              className="p-text"
-              type="email"
-              required
-              placeholder="Your Email"
-              name="email"
-              value={email}
-              onChange={handleChangeInput}
-            />
-          </div>
-          <div className="app__flex">
-            <textarea
-              className="p-text"
-              placeholder="Your Message"
-              required
-              value={message}
-              name="message"
-              onChange={handleChangeInput}
-            />
-          </div>
-          <button type="button" className="p-text" onClick={handleSubmit}>
-            {!loading ? "Send Message" : "Sending..."}  
-          </button>
-        </div>
-      ) : (
-        <div>
-          <h3 className="head-text">Thank you for getting in touch!</h3>
-        </div>
-      )}
-    </div>
     </div>
   );
 };

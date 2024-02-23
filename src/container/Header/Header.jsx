@@ -4,7 +4,7 @@ import { easeInOut, motion } from "framer-motion";
 import { images } from "../../constants";
 import { AppWrap } from "../../wrapper";
 import { FaCircleArrowDown } from "react-icons/fa6";
-
+import resume from '../../assets/harshresume.pdf'
 
 const scaleVarients = {
   whileInView: {
@@ -47,14 +47,14 @@ const Header = () => {
           whileInView={{opacity: [0, 1] }}
           transition={{ duration: 3 }}
           >
-            {/* <a href={resume} target="_blank"> */}
+            <a href={resume} target="_blank" rel="noreferrer">
               <p>Resume</p>
               <button className="explore-button">
                 <div className="arrow-icon">
                   <FaCircleArrowDown/>
                 </div>
               </button>
-            {/* </a> */}
+            </a>
           </motion.div>
         </div>
       </motion.div>
