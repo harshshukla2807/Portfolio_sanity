@@ -9,6 +9,8 @@ import { IoLogoWhatsapp } from "react-icons/io";
 // import {BsTwitter} from 'react-icons/bs'
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -54,7 +56,7 @@ const Contact = () => {
       <h2 className="head-text contact-heading">Get in Touch</h2>
       <div className="app__footer-container">
         <motion.div
-          whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+          whileInView={{ y: [-100, 0], opacity: [0, 1] }}
           transition={{ duration: 2.4 }}
           className="app__footer-cards"
         >
@@ -84,20 +86,20 @@ const Contact = () => {
             </a>
           </div>
           <div className="app__footer-card">
-            <FaSquareXTwitter color="black" className="twitter-icon" />
+            <FaGithub color="black" className="github-icon" />
             <a
-              href="https://twitter.com/Harsh_stwt"
+              href="https://github.com/harshshukla2807"
               target="_blank"
               rel="noreferrer"
               className="p-text"
             >
-              @Harsh_stwt
+              @github/harshshukla2807
             </a>
           </div>
         </motion.div>
         {!isFormSubmitted ? (
           <motion.div
-            whileInView={{ x: [100, 0], opacity: [0, 1] }}
+            whileInView={{ y: [100, 0], opacity: [0, 1] }}
             transition={{ duration: 1.6}}
             className="app__footer-form app__flex"
           >
