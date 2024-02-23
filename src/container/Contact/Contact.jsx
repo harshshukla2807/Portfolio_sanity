@@ -7,7 +7,7 @@ import Lottie from "lottie-react";
 import { IoIosMail } from "react-icons/io";
 import { IoLogoWhatsapp } from "react-icons/io";
 // import {BsTwitter} from 'react-icons/bs'
-import { FaSquareXTwitter } from "react-icons/fa6";
+// import { FaSquareXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 
