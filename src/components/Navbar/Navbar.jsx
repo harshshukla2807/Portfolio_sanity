@@ -31,9 +31,9 @@ const Navbar = () => {
         {toggle && (
           <>
             <motion.div
-              whileInView={{ x: [300, 0] }}
+              whileInView={{ x: [100, 20] }}
               transition={{ duration: 0.85, ease: "easeOut" }}
-              className="menu-container"
+              // className="menu-container"
             >
               <HiX onClick={() => setToggle(false)} />
               <ul>
