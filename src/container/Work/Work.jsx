@@ -6,7 +6,7 @@ import {urlFor, client } from '../../client'
 import { AppWrap, MotionWrap } from '../../wrapper'
 
 const Work = () => {
-  const [activeFilter,setActiveFilter]= useState('All')
+  const [activeFilter,setActiveFilter]= useState('Featured')
   const [animateCard, setAnimateCard] = useState({y:0 , opacity:1})
   const [works, setWorks]=useState([])
   const [FilterWork, setFilterWork]=useState([])
@@ -16,8 +16,9 @@ const Work = () => {
   const query='*[_type=="works"] | order(priority desc, _updatedAt desc)';
   
   client.fetch(query).then((data)=>{
+    console.log(data)
     setWorks(data)
-    setFilterWork(data)
+    setFilterWork(data.filter((work) => work.tags.includes('Featured')))
   })
   
   
@@ -32,11 +33,13 @@ const Work = () => {
       setAnimateCard([{y:0,opacity:1}])
     }, 500);
     
-    if(item==='All'){
-      setFilterWork(works);
-    }else{
-      setFilterWork(works.filter((work)=>work.tags.includes(item)))
-    }
+    
+    setFilterWork(works.filter((work)=>work.tags.includes(item)))
+    // if(item==='Main'){
+    //   setFilterWork(works);
+    // }else{
+    //   setFilterWork(works.filter((work)=>work.tags.includes(item)))
+    // }
   }
   
   
@@ -47,7 +50,7 @@ const Work = () => {
         </h2>
         
         <div className="app__work-filter">
-          {['All','Frontend','FullStack','UI/UX'].map((item,index)=>(
+          {['Featured','Frontend','FullStack','UI/UX','All'].map((item,index)=>(
             <div
             key={index}
             onClick={()=>handleWorkFilter(item)}
