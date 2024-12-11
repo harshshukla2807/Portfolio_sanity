@@ -14,7 +14,7 @@ const Work = () => {
   useEffect(() => {
     
   const query='*[_type=="works"] | order(priority desc, _updatedAt desc)';
-  
+  // console.log(query)
   client.fetch(query).then((data)=>{
     console.log(data)
     setWorks(data)
